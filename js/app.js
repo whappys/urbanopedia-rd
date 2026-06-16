@@ -1,0 +1,1 @@
+document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')alert('Buscador listo');});
