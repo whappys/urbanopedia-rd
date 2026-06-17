@@ -1,13 +1,28 @@
 
-body{margin:0;font-family:Arial;background:#0f0f0f;color:#fff}
-.hero{height:380px;background:linear-gradient(135deg,#111,#222,#000);display:flex;align-items:center;justify-content:center;text-align:center}
-h1{font-size:58px;color:#f3c300}
-.search input{padding:12px;width:60%}.search button{padding:12px;background:#f3c300;border:none}
-nav{background:#181818;padding:15px;text-align:center}nav a{color:white;margin:0 10px;text-decoration:none}
-.container{max-width:1200px;margin:auto;padding:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card,.panel,.timeline div{background:#1a1a1a;padding:15px;border-radius:10px}
-.img{height:220px;background:linear-gradient(135deg,#444,#222);border-radius:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Segoe UI,Arial,sans-serif;background:#0b0b0b;color:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:100;background:#111;padding:18px 30px;border-bottom:1px solid #222;display:flex;justify-content:space-between}
+.logo{color:#f4c542;font-size:28px;font-weight:700}
+.menu a{margin-left:20px;color:#ddd}
+.hero{height:85vh;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8));display:flex;align-items:center;justify-content:center;text-align:center}
+.hero h1{font-size:78px;color:#f4c542}
+.hero p{font-size:24px;color:#ddd;margin:15px 0}
+.search input{width:70%;max-width:700px;padding:18px;border:none;border-radius:12px}
+.container{max-width:1300px;margin:auto;padding:60px 25px}
+.section-title{color:#f4c542;margin-bottom:25px;font-size:32px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat,.panel,.card,.event{background:#151515;border:1px solid #262626;border-radius:18px}
+.stat{padding:25px;text-align:center}
+.num{font-size:48px;color:#f4c542;font-weight:bold}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.thumb{height:260px;background:linear-gradient(135deg,#555,#222)}
+.info{padding:15px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
-footer{text-align:center;padding:30px;color:#aaa}
+.panel{padding:25px}
+.timeline{display:flex;gap:18px;overflow:auto}
+.event{padding:18px;min-width:220px}
+.banner{height:320px;border-radius:20px;background:linear-gradient(135deg,#666,#222)}
+.profile{max-width:1000px;margin:auto;padding:40px}
+footer{text-align:center;padding:40px;color:#999}
+@media(max-width:800px){.hero h1{font-size:46px}.stats,.two{grid-template-columns:1fr}.search input{width:95%}}
