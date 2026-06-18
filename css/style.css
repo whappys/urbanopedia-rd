@@ -16,7 +16,12 @@ nav{position:sticky;top:0;z-index:100;background:#111;padding:18px 30px;border-b
 .stat{padding:25px;text-align:center}
 .num{font-size:48px;color:#f4c542;font-weight:bold}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.thumb{height:260px;background:linear-gradient(135deg,#555,#222)}
+.thumb{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    display:block;
+}
 .info{padding:15px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .panel{padding:25px}
