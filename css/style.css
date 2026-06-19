@@ -31,14 +31,18 @@ nav{position:sticky;top:0;z-index:100;background:#111;padding:18px 30px;border-b
 .profile{max-width:1000px;margin:auto;padding:40px}
 footer{text-align:center;padding:40px;color:#999}
 .ad-space{
-    background:red !important;
-    border:5px solid yellow !important;
-    color:white !important;
-    min-height:150px;
     margin:30px 0;
+    min-height:120px;
+
+    background:#161616;
+    border:2px dashed #555;
+    border-radius:15px;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:30px;
+
+    color:#888;
+    font-size:18px;
 }
 @media(max-width:800px){.hero h1{font-size:46px}.stats,.two{grid-template-columns:1fr}.search input{width:95%}}
