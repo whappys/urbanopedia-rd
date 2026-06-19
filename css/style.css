@@ -31,26 +31,14 @@ nav{position:sticky;top:0;z-index:100;background:#111;padding:18px 30px;border-b
 .profile{max-width:1000px;margin:auto;padding:40px}
 footer{text-align:center;padding:40px;color:#999}
 .ad-space{
+    background:red !important;
+    border:5px solid yellow !important;
+    color:white !important;
+    min-height:150px;
     margin:30px 0;
-    padding:30px;
-    min-height:120px;
-    background:#151515;
-    border:2px dashed #444;
-    border-radius:15px;
-    text-align:center;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#999;
-    font-size:18px;
-}
-.ad-space{
-    margin:30px 0;
-    padding:30px;
-    min-height:120px;
-    background:red;
-    border:5px solid yellow;
-    color:white;
     font-size:30px;
 }
 @media(max-width:800px){.hero h1{font-size:46px}.stats,.two{grid-template-columns:1fr}.search input{width:95%}}
