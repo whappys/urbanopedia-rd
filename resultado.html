@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>🧠 Test Mental - Resultado</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- BANNER SUPERIOR -->
+  <div class="ad-slot ad-top"><div class="ad-label">PUBLICIDAD</div><div class="ad-placeholder"><div class="placeholder-text">AQUÍ PUBLICIDAD</div><div class="placeholder-size">728x90 / 320x50</div><!-- PEGA AQUÍ CÓDIGO ADSTERRA --></div></div>
+
+  <div class="main-wrapper" style="display:grid; grid-template-columns:180px 1fr 180px; gap:20px; max-width:1400px; margin:0 auto; padding:20px;">
+    <aside class="ad-slot ad-left"><div class="ad-label">PUBLICIDAD</div><div class="ad-placeholder"><div class="placeholder-text">AQUÍ<br>PUBLICIDAD</div><div class="placeholder-size">160x600</div><!-- PEGA AQUÍ CÓDIGO ADSTERRA --></div></aside>
+
+    <div id="app">
+      <section id="scr-result" class="screen">
+        <div class="card center">
+          <div class="hero">🎯</div>
+          <h1>Tu resultado</h1>
+          <div class="big" id="final">0/20</div>
+          <div class="tier" id="tier"></div>
+          <div class="meta" id="meta"></div>
+          <div class="record" id="record"></div>
+          <button class="btn" id="share">📣 COMPARTIR MI RESULTADO</button>
+          <button class="btn sec" id="again">🔄 JUGAR DE NUEVO</button>
+          <p class="fine">Esta puntuación describe únicamente tu desempeño en este conjunto de ejercicios. No equivale a un número de CI ni permite diagnosticar inteligencia.<br>Base: ejercicios originales de razonamiento abstracto visual.</p>
+        </div>
+      </section>
+    </div>
+
+    <aside class="ad-slot ad-right"><div class="ad-label">PUBLICIDAD</div><div class="ad-placeholder"><div class="placeholder-text">AQUÍ<br>PUBLICIDAD</div><div class="placeholder-size">160x600</div><!-- PEGA AQUÍ CÓDIGO ADSTERRA --></div></aside>
+  </div>
+
+  <!-- BANNER INFERIOR MÓVIL -->
+  <div class="ad-slot ad-bottom"><div class="ad-label">PUBLICIDAD</div><div class="ad-placeholder"><div class="placeholder-text">AQUÍ PUBLICIDAD</div><div class="placeholder-size">320x50</div><!-- PEGA AQUÍ CÓDIGO ADSTERRA --></div></div>
+
+<script>
+const $ = s => document.querySelector(s);
+let score = parseInt(localStorage.getItem('session_score')) || 0;
+const startTime = parseInt(localStorage.getItem('session_start')) || Date.now();
+let best = parseInt(localStorage.getItem('rv_best') || '0', 10) || 0;
+
+function tier(s) {
+  if(s>=18) return '🏆 Maestro de patrones';
+  if(s>=14) return '🔍 Razonamiento afilado';
+  if(s>=9) return '👀 Ojo entrenado';
+  return '🌱 Calentando neuronas';
+}
+
+const t = Math.round((Date.now() - startTime) / 1000);
+const mm = Math.floor(t / 60), ss = String(t % 60).padStart(2, '0');
+
+$('#final').textContent = score + '/20';
+$('#tier').textContent = tier(score);
+$('#meta').textContent = `⏱️ Tiempo: ${mm}:${ss} · 20 retos`;
+
+let rec;
+if (score > best) {
+  best = score;
+  try { localStorage.setItem('rv_best', String(best)); } catch(e) {}
+  rec = '🎉 ¡Nuevo récord personal!';
+} else {
+  rec = `Tu récord: ${best}/20`;
+}
+$('#record').textContent = rec;
+
+// Limpiar sesión actual para el próximo juego
+localStorage.removeItem('session_idx');
+localStorage.removeItem('session_score');
+localStorage.removeItem('session_start');
+localStorage.removeItem('session_answered');
+localStorage.removeItem('session_hints');
+
+$('#share').addEventListener('click', async () => {
+  const text = `🧠 Test Mental Gratis: hice ${score}/20 (${tier(score)}). Es 100% gratis, ¿puedes superarme?`;
+  if (navigator.share) {
+    try { await navigator.share({ text: text }); return; } catch(e) {}
+  }
+  try {
+    await navigator.clipboard.writeText(text);
+    alert('¡Resultado copiado al portapapeles!');
+  } catch(e) {}
+});
+
+$('#again').addEventListener('click', () => {
+  window.location.href = 'index.html';
+});
+</script>
+
+<p style="text-align:center; margin-top:20px; font-size:12px;">
+  <a href="privacy.html" style="color:var(--mut); text-decoration:none;">Política de Privacidad</a>
+</p>
+
+</body>
+</html>
