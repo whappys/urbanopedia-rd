@@ -1,0 +1,23 @@
+1. Cómo enlazar un nombre
+
+Ahora mismo probablemente tienes algo así:
+
+<ol>
+  <li>El Alfa</li>
+  <li>Rochy RD</li>
+  <li>Chimbala</li>
+</ol>
+
+Eso es solo texto.
+
+Para convertirlo en enlace:
+
+<ol>
+  <li><a href="el-alfa.html">El Alfa</a></li>
+  <li><a href="rochy-rd.html">Rochy RD</a></li>
+  <li><a href="chimbala.html">Chimbala</a></li>
+</ol>
+
+Cuando hagan clic en "El Alfa", abrirá:
+
+el-alfa.html

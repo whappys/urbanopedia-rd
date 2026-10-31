@@ -1,0 +1,16 @@
+Dentro de un párrafo
+
+En vez de:
+
+<p>
+Rochy RD colaboró con El Alfa en varios temas.
+</p>
+
+pones:
+
+<p>
+<a href="rochy-rd.html">Rochy RD</a>
+colaboró con
+<a href="el-alfa.html">El Alfa</a>
+en varios temas.
+</p>
