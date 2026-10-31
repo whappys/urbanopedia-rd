@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Urbanopedia Generator</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#111;
+color:#fff;
+}
+
+header{
+background:#1a1a1a;
+padding:20px;
+border-bottom:1px solid #333;
+}
+
+header h1{
+color:#f4c542;
+}
+
+.container{
+display:grid;
+grid-template-columns:400px 1fr;
+min-height:100vh;
+}
+
+.sidebar{
+background:#181818;
+padding:20px;
+overflow:auto;
+border-right:1px solid #333;
+}
+
+.preview{
+padding:20px;
+overflow:auto;
+}
+
+.section{
+margin-bottom:25px;
+}
+
+.section h2{
+margin-bottom:10px;
+color:#f4c542;
+font-size:18px;
+}
+
+input[type=text],
+textarea{
+width:100%;
+padding:10px;
+background:#222;
+border:1px solid #444;
+color:white;
+border-radius:8px;
+margin-top:5px;
+}
+
+textarea{
+min-height:100px;
+resize:vertical;
+}
+
+button{
+background:#f4c542;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+margin-top:10px;
+}
+
+button:hover{
+opacity:.9;
+}
+
+.field{
+margin-bottom:15px;
+}
+
+.field label{
+display:block;
+margin-bottom:5px;
+font-size:14px;
+}
+
+.preview-frame{
+background:white;
+color:black;
+padding:20px;
+border-radius:10px;
+min-height:500px;
+}
+
+.actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+#fieldsContainer{
+margin-top:20px;
+}
+
+.fileName{
+margin-top:15px;
+font-size:14px;
+color:#bbb;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>Urbanopedia Generator</h1>
+</header>
+
+<div class="container">
+
+<div class="sidebar">
+
+<div class="section">
+
+<h2>Plantilla</h2>
+
+<input
+type="file"
+id="templateFile"
+accept=".html,.txt">
+
+</div>
+
+<div id="fieldsContainer"></div>
+
+<div class="section">
+
+<div class="actions">
+
+<button id="previewBtn">
+Actualizar Vista Previa
+</button>
+
+<button id="downloadBtn">
+Generar HTML
+</button>
+
+</div>
+
+<div class="fileName" id="fileNameBox">
+archivo.html
+</div>
+
+</div>
+
+</div>
+
+<div class="preview">
+
+<div class="preview-frame" id="previewFrame">
+
+Cargue una plantilla para comenzar.
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let templateContent = "";
+
+let detectedFields = [];
+
+let fieldValues = {};
+
+const fieldsContainer =
+document.getElementById("fieldsContainer");
+
+const previewFrame =
+document.getElementById("previewFrame");
+
+const fileNameBox =
+document.getElementById("fileNameBox");
+
+document
+.getElementById("templateFile")
+.addEventListener(
+"change",
+loadTemplate
+);
+
+function loadTemplate(event){
+
+const file =
+event.target.files[0];
+
+if(!file) return;
+
+const reader =
+new FileReader();
+
+reader.onload = function(e){
+
+templateContent =
+e.target.result;
+
+detectFields();
+
+};
+
+reader.readAsText(file);
+
+}
+
+function detectFields(){
+
+const matches =
+[
+...templateContent.matchAll(
+/\[([A-Z0-9_]+)\]/g
+)
+];
+
+detectedFields =
+[
+...new Set(
+matches.map(
+m => m[1]
+)
+)
+];
+
+function buildForm(){
+
+fieldsContainer.innerHTML = "";
+
+fieldValues = {};
+
+detectedFields.forEach(field => {
+
+fieldValues[field] = "";
+
+const wrapper = document.createElement("div");
+wrapper.className = "field";
+
+const label = document.createElement("label");
+label.textContent = field;
+
+const input = document.createElement("textarea");
+
+input.addEventListener("input", function(){
+
+fieldValues[field] = this.value;
+
+updatePreview();
+
+});
+
+wrapper.appendChild(label);
+wrapper.appendChild(input);
+
+fieldsContainer.appendChild(wrapper);
+
+});
+
+updatePreview();
+
+}
+
+function updatePreview(){
+
+let html = templateContent;
+
+Object.keys(fieldValues).forEach(field => {
+
+const regex =
+new RegExp("\\[" + field + "\\]", "g");
+
+html =
+html.replace(
+regex,
+fieldValues[field]
+);
+
+});
+
+previewFrame.innerHTML = html;
+
+updateFileName();
+
+}
+
+function updateFileName(){
+
+if(fieldValues["NOMBRE_ARTISTA"]){
+
+let slug =
+fieldValues["NOMBRE_ARTISTA"]
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.replace(/[^a-z0-9]+/g,"-")
+.replace(/^-|-$/g,"");
+
+fileNameBox.textContent =
+slug + ".html";
+
+}else{
+
+fileNameBox.textContent =
+"archivo.html";
+
+}
+
+}
+
+document
+.getElementById("previewBtn")
+.addEventListener(
+"click",
+updatePreview
+);
+
+document
+.getElementById("downloadBtn")
+.addEventListener(
+"click",
+downloadHtml
+);
+
+function downloadHtml(){
+
+let html = templateContent;
+
+Object.keys(fieldValues).forEach(field => {
+
+const regex =
+new RegExp("\\[" + field + "\\]", "g");
+
+html =
+html.replace(
+regex,
+fieldValues[field]
+);
+
+});
+
+let fileName =
+fileNameBox.textContent;
+
+const blob =
+new Blob(
+[html],
+{type:"text/html"}
+);
+
+const a =
+document.createElement("a");
+
+a.href =
+URL.createObjectURL(blob);
+
+a.download =
+fileName;
+
+a.click();
+
+URL.revokeObjectURL(a.href);
+
+}
+
+</script>
+
+</body>
+</html>

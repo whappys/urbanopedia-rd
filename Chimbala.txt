@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chimbala | Urbanopedia RD</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.artist-header{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.artist-photo{
+width:320px;
+max-width:100%;
+border-radius:18px;
+box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+
+.artist-info{
+flex:1;
+}
+
+.info-box{
+background:#181818;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+border:1px solid #333;
+}
+
+.section{
+margin-top:40px;
+background:#181818;
+padding:25px;
+border-radius:15px;
+border:1px solid #333;
+}
+
+.section h2{
+color:#f4c542;
+margin-bottom:15px;
+}
+
+.socials a{
+display:inline-block;
+margin-right:15px;
+margin-bottom:10px;
+background:#222;
+padding:10px 15px;
+border-radius:10px;
+}
+
+.related-list li{
+margin-bottom:10px;
+}
+
+.back-link{
+display:inline-block;
+margin-bottom:20px;
+color:#f4c542;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.stat-card{
+background:#222;
+padding:20px;
+border-radius:12px;
+text-align:center;
+}
+
+.stat-card h3{
+font-size:30px;
+color:#f4c542;
+}
+
+.song-list li,
+.album-list li{
+margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+URBANOPEDIA RD
+</div>
+
+<div class="menu">
+
+<a href="index.html">Inicio</a>
+
+<a href="ranking.html">Rankings</a>
+
+<a href="influencers.html">Influencers</a>
+
+</div>
+
+</nav>
+
+<div class="profile">
+
+<a href="index.html" class="back-link">
+← Volver al inicio
+</a>
+
+<div class="artist-header">
+
+<img
+src="img/chimbala.jpg"
+alt="Chimbala"
+class="artist-photo">
+
+<div class="artist-info">
+
+<h1>Chimbala</h1>
+
+<p>
+
+Chimbala es uno de los artistas dominicanos más populares del dembow moderno. Con un estilo caracterizado por ritmos rápidos, letras pegajosas y un sello humorístico, ha logrado posicionarse entre los exponentes urbanos más influyentes de la República Dominicana y alcanzar reconocimiento internacional.
+
+</p>
+
+<div class="info-box">
+
+<h3>Datos rápidos</h3>
+
+<p><strong>Nombre real:</strong> Leury José Tejeda Brito</p>
+
+<p><strong>Nacimiento:</strong> 18 de mayo de 1991</p>
+
+<p><strong>Origen:</strong> Santo Domingo, República Dominicana</p>
+
+<p><strong>Género:</strong> Dembow</p>
+
+<p><strong>Ocupación:</strong> Cantante y compositor</p>
+
+<p><strong>Activo desde:</strong> 2012</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ad-space">
+ESPACIO PUBLICITARIO
+</div>
+
+<div class="section">
+
+<h2>Biografía</h2>
+
+<p>
+
+Leury José Tejeda Brito, conocido artísticamente como Chimbala, inició su carrera dentro del movimiento urbano dominicano interpretando dembow. Durante sus primeros años lanzó múltiples sencillos que poco a poco comenzaron a ganar popularidad en barrios y plataformas digitales.
+
+</p>
+
+<p>
+
+Su consolidación llegó gracias a una serie de éxitos virales que combinaron ritmos bailables con un estilo desenfadado y una personalidad muy característica. Con el paso del tiempo se convirtió en uno de los artistas más escuchados del género, colaborando con figuras nacionales e internacionales y acumulando millones de reproducciones en YouTube y plataformas de streaming.
+
+</p>
+
+<div class="section">
+
+<h2>Estadísticas</h2>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>2012</h3>
+<p>Inicio profesional</p>
+</div>
+
+<div class="stat-card">
+<h3>10+</h3>
+<p>Años de carrera</p>
+</div>
+
+<div class="stat-card">
+<h3>Global</h3>
+<p>Alcance</p>
+</div>
+
+<div class="stat-card">
+<h3>Dembow</h3>
+<p>Género principal</p>
+</div>
+
+</div>
+
+</div>
+<div class="section">
+
+<h2>Canciones populares</h2>
+
+<ul class="song-list">
+
+<li>Che Che</li>
+
+<li>Maniquí</li>
+
+<li>Loco</li>
+
+<li>Esta Sí</li>
+
+<li>Abusadora</li>
+
+<li>Tan Celoso</li>
+
+<li>Yo Tengo un Gato</li>
+
+<li>Feliz</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>Álbumes y EP</h2>
+
+<ul class="album-list">
+
+<li>Diferentes sencillos y recopilaciones digitales publicados durante su carrera.</li>
+
+<li>Gran parte de su discografía ha sido lanzada directamente en plataformas digitales.</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>Colaboraciones destacadas</h2>
+
+<ul>
+
+<li>El Alfa</li>
+
+<li>Rochy RD</li>
+
+<li>Bulin 47</li>
+
+<li>Angel Dior</li>
+
+<li>Yomel El Meloso</li>
+
+<li>Nfasis</li>
+
+<li>Vakero</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>Premios y reconocimientos</h2>
+
+<ul>
+
+<li>Uno de los artistas de dembow dominicano con mayor número de reproducciones en plataformas digitales.</li>
+
+<li>Varias canciones han superado decenas de millones de visualizaciones en YouTube.</li>
+
+<li>Reconocido internacionalmente por la expansión del dembow dominicano.</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>Controversias</h2>
+
+<p>
+
+Como ocurre con muchos exponentes del movimiento urbano, Chimbala ha protagonizado rivalidades musicales y debates dentro del género. Sin embargo, gran parte de su carrera ha estado enfocada en la producción musical y el entretenimiento.
+
+</p>
+
+</div>
+
+<div class="ad-space">
+
+ESPACIO PUBLICITARIO
+
+</div>
+
+<div class="section">
+
+<h2>Redes sociales</h2>
+
+<div class="socials">
+
+<a href="#">Instagram</a>
+
+<a href="#">YouTube</a>
+
+<a href="#">Spotify</a>
+
+<a href="#">TikTok</a>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Artistas relacionados</h2>
+
+<ul class="related-list">
+
+<li><a href="el-alfa.html">El Alfa</a></li>
+
+<li><a href="rochy-rd.html">Rochy RD</a></li>
+
+<li><a href="angel-dior.html">Angel Dior</a></li>
+
+<li><a href="bulin-47.html">Bulin 47</a></li>
+
+<li><a href="yailin-la-mas-viral.html">Yailin La Más Viral</a></li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>Curiosidades</h2>
+
+<ul>
+
+<li>Es considerado uno de los responsables de la internacionalización del dembow dominicano.</li>
+
+<li>Su estilo mezcla humor, baile y ritmos rápidos.</li>
+
+<li>Ha acumulado cientos de millones de reproducciones entre YouTube y plataformas de streaming.</li>
+
+<li>Es uno de los artistas urbanos dominicanos más activos en colaboraciones.</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>Contenido relacionado</h2>
+
+<ul>
+
+<li><a href="el-alfa.html">Biografía de El Alfa</a></li>
+
+<li><a href="rochy-rd.html">Biografía de Rochy RD</a></li>
+
+<li><a href="angel-dior.html">Biografía de Angel Dior</a></li>
+
+<li><a href="ranking.html">Ranking Urbano RD</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>© 2026 Urbanopedia RD - La Enciclopedia de la Cultura Urbana Dominicana.</p>
+
+</footer>
+
+</body>
+
+</html>
